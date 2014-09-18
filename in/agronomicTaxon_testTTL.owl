@@ -1,0 +1,369 @@
+<http://ontology.irstea.fr/AgronomicTaxon> rdf:type :Ontology ;
+                                           
+                                           rdfs:comment "created by irstea. This ontology is a module that is based on skos vocabulary, linnean taxonomy vocabulary and classification vocabulary. " .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#classify
+
+<http://ontology.irstea.fr/AgronomicTaxon#classify> rdf:type :ObjectProperty ;
+                                                    
+                                                    rdfs:seeAlso "classification:classify" ;
+                                                    
+                                                    rdfs:comment "A relation between a Concept and an Entity, e.g. the Role student classifies a Person John" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#hasHigherRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#hasHigherRank> rdf:type :ObjectProperty ;
+                                                         
+                                                         rdfs:seeAlso "LinneanTaxonomy:haslowerRank" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#hasLowerRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#hasLowerRank> rdf:type :ObjectProperty ;
+                                                        
+                                                        rdfs:seeAlso "LinneanTaxonomy:haslowerRank" ;
+                                                        
+                                                        :inverseOf <http://ontology.irstea.fr/AgronomicTaxon#hasHigherRank> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#inScheme
+
+<http://ontology.irstea.fr/AgronomicTaxon#inScheme> rdf:type :ObjectProperty ;
+                                                    
+                                                    rdfs:seeAlso "skos:inScheme" ;
+                                                    
+                                                    rdfs:comment "a relation that links a skos:concept to its skos:ConceptScheme" ;
+                                                    
+                                                    rdfs:range <http://ontology.irstea.fr/AgronomicTaxon#ConceptScheme> ;
+                                                    
+                                                    :inverseOf <http://ontology.irstea.fr/AgronomicTaxon#memberScheme> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy
+
+<http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> rdf:type :ObjectProperty ;
+                                                          
+                                                          rdfs:seeAlso """classification: isClassifiedBy
+""" ;
+                                                          
+                                                          rdfs:comment "A relation between a Concept and an Entity, e.g. John is considered a typical rude man; your last concert constitutes the achievement of a lifetime; 20-year-old means she is mature enough." ;
+                                                          
+                                                          :inverseOf <http://ontology.irstea.fr/AgronomicTaxon#classify> ;
+                                                          
+                                                          :propertyChainAxiom ( <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy>
+                                                                                <http://ontology.irstea.fr/AgronomicTaxon#hasHigherRank>
+                                                                              ) .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByGenus
+
+<http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByGenus> rdf:type :ObjectProperty ;
+                                                               
+                                                               rdfs:range <http://ontology.irstea.fr/AgronomicTaxon#GenusRank> ;
+                                                               
+                                                               rdfs:subPropertyOf <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByKingdom
+
+<http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByKingdom> rdf:type :ObjectProperty ;
+                                                                 
+                                                                 rdfs:range <http://ontology.irstea.fr/AgronomicTaxon#KingdomRank> ;
+                                                                 
+                                                                 rdfs:subPropertyOf <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBySpecy
+
+<http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBySpecy> rdf:type :ObjectProperty ;
+                                                               
+                                                               rdfs:range <http://ontology.irstea.fr/AgronomicTaxon#SpecyRank> ;
+                                                               
+                                                               rdfs:subPropertyOf <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByVariety
+
+<http://ontology.irstea.fr/AgronomicTaxon#isClassifiedByVariety> rdf:type :ObjectProperty ;
+                                                                 
+                                                                 rdfs:range <http://ontology.irstea.fr/AgronomicTaxon#VarietyRank> ;
+                                                                 
+                                                                 rdfs:subPropertyOf <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#memberScheme
+
+<http://ontology.irstea.fr/AgronomicTaxon#memberScheme> rdf:type :ObjectProperty ;
+                                                        
+                                                        rdfs:domain <http://ontology.irstea.fr/AgronomicTaxon#ConceptScheme> .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#hasScientificName
+
+<http://ontology.irstea.fr/AgronomicTaxon#hasScientificName> rdf:type :DatatypeProperty .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#hasVernacularName
+
+<http://ontology.irstea.fr/AgronomicTaxon#hasVernacularName> rdf:type :DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#ClassRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#ClassRank> rdf:type :Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                     
+                                                     rdfs:seeAlso "linneanTaxonomy:Class" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#Concept
+
+<http://ontology.irstea.fr/AgronomicTaxon#Concept> rdf:type :Class ;
+                                                   
+                                                   rdfs:comment """The class skos:Concept is the class of SKOS concepts.
+
+A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive.
+
+The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.
+
+Note that, because SKOS is designed to be a vehicle for representing semi-formal KOS, such as thesauri and classification schemes, a certain amount of flexibility has been built in to the formal definition of this class.""" ;
+                                                   
+                                                   rdfs:seeAlso "classification:concept" ,
+                                                                "skos:Concept" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#ConceptScheme
+
+<http://ontology.irstea.fr/AgronomicTaxon#ConceptScheme> rdf:type :Class ;
+                                                         
+                                                         rdfs:seeAlso "skos:ConceptScheme" ;
+                                                         
+                                                         rdfs:comment """A SKOS concept scheme can be viewed as an aggregation of one or more SKOS concepts. Semantic relationships (links) between those concepts may also be viewed as part of a concept scheme. This definition is, however, meant to be suggestive rather than restrictive, and there is some flexibility in the formal data model stated below.
+
+The notion of a concept scheme is useful when dealing with data from an unknown source, and when dealing with data that describes two or more different knowledge organization systems. """ .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#FamilyRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#FamilyRank> rdf:type :Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                      
+                                                      rdfs:seeAlso "linneanTaxonomy:Family" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#GenusRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#GenusRank> rdf:type :Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                     
+                                                     rdfs:seeAlso "linneanTaxonomy:Genus" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#KingdomRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#KingdomRank> rdf:type :Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                       
+                                                       rdfs:seeAlso "linneanTaxonomy:Kingdom" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#LivingOrganism
+
+<http://ontology.irstea.fr/AgronomicTaxon#LivingOrganism> rdf:type :Class .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#OrderRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#OrderRank> rdf:type :Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                     
+                                                     rdfs:seeAlso "linneanTaxonomy:Order" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#PhylumRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#PhylumRank> rdf:type :Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                      
+                                                      rdfs:seeAlso "linneanTaxonomy:Phylum" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#SpecyRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#SpecyRank> rdf:type :Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> ;
+                                                     
+                                                     rdfs:seeAlso "linneanTaxonomy:Species" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#Taxon
+
+<http://ontology.irstea.fr/AgronomicTaxon#Taxon> rdf:type :Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Concept> ;
+                                                 
+                                                 rdfs:seeAlso "linneanTaxonomy:Taxon" .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#Taxonomy
+
+<http://ontology.irstea.fr/AgronomicTaxon#Taxonomy> rdf:type :Class ;
+                                                    
+                                                    rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#ConceptScheme> .
+
+
+
+###  http://ontology.irstea.fr/AgronomicTaxon#VarietyRank
+
+<http://ontology.irstea.fr/AgronomicTaxon#VarietyRank> rdf:type :Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontology.irstea.fr/AgronomicTaxon#Taxon> .
+
+
+
+
+
+#################################################################
+#
+#    Rules
+#
+#################################################################
+
+
+<urn:swrl#o> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#s> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#label> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> <http://ontology.irstea.fr/AgronomicTaxon#LivingOrganism> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> <http://ontology.irstea.fr/AgronomicTaxon#SpecyRank> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#s>
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#s>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#hasScientificName> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#label> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#s>
+                                                                                     ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#hasScientificName> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#label> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#hasVernacularName> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#label> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> <http://ontology.irstea.fr/AgronomicTaxon#LivingOrganism> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#isClassifiedBy> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#o> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#s>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://ontology.irstea.fr/AgronomicTaxon#hasVernacularName> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#label> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#s>
+                                                                                     ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> <http://ontology.irstea.fr/AgronomicTaxon#SpecyRank> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#s>
+                                                               ]
+                                                   ]
+                                        ]
+] .
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
