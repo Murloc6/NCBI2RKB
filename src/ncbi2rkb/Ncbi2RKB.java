@@ -21,7 +21,7 @@ public class Ncbi2RKB
      */
     public static void main(String[] args) 
     {
-        SparqlProxy spOut = SparqlProxy.getSparqlProxy("http://localhost:3030/Ncbi2RKB_out/");
+        SparqlProxy spOut = SparqlProxy.getSparqlProxy("http://amarger.murloc.fr:8080/Ncbi2RKB_out/");
         
         NCBIExtractor ne = new NCBIExtractor(spOut);
         
@@ -38,11 +38,11 @@ public class Ncbi2RKB
         System.out.println("Nodes loaded");
         
         System.out.println("Exporting to sparql output");
-        ne.exportNodesToSpOut("in/agronomicTaxon_testTTL.owl");
+        ne.exportNodesToSpOut("in/agronomicTaxon.owl");
         System.out.println("Exported");
         
         
-        String dateFileName = new SimpleDateFormat("dd-MM_HH:mm_||_").format(new Date());
+        String dateFileName = new SimpleDateFormat("dd-MM_HH-mm_").format(new Date());
         System.out.println("Exporting RKB to file : out/"+dateFileName+"_NCBI_OWL.owl");
         ne.saveExportToFile(dateFileName+"_NCBI_OWL"); 
         System.out.println("File generated");

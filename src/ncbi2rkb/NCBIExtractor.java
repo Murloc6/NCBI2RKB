@@ -242,7 +242,17 @@ public class NCBIExtractor
              String uriR = uriRank.get(n.getRank());
              if(uriR == null)
              {
-                 uriR = "http://ontology.irstea.fr/AgronomicTaxon#Taxon";
+                 if(n.getRank().compareTo("no rank") != 0)
+                 {
+                    uriR = "http://www.ncbi.nlm.nih.gov/Taxonomy/"+uriR;
+                    this.uriRank.put(n.getRank(), uriR);
+                    currentQueryPart += "<"+uriR+"> rdf:type owl:Class; rdfs:subClassOf  <http://ontology.irstea.fr/AgronomicTaxon#Taxon>; rdfs:label \""+n.getRank()+"\".  ";
+                 }
+                 else
+                 {
+                     uriR = "http://ontology.irstea.fr/AgronomicTaxon#Taxon";
+                 }
+                 
              }
              currentQueryPart += "<"+ncbiUriBase+id+"> rdf:type <"+uriR+">;";
              
