@@ -244,7 +244,7 @@ public class NCBIExtractor
              {
                  if(n.getRank().compareTo("no rank") != 0)
                  {
-                    uriR = "http://www.ncbi.nlm.nih.gov/Taxonomy/"+uriR;
+                    uriR = "http://www.ncbi.nlm.nih.gov/Taxonomy/"+n.getRank();
                     this.uriRank.put(n.getRank(), uriR);
                     currentQueryPart += "<"+uriR+"> rdf:type owl:Class; rdfs:subClassOf  <http://ontology.irstea.fr/AgronomicTaxon#Taxon>; rdfs:label \""+n.getRank()+"\".  ";
                  }
