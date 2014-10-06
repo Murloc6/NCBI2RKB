@@ -64,10 +64,12 @@ public class Names
         for(String s : this.prefLabels)
         {
             ret += "<http://ontology.irstea.fr/AgronomicTaxon#hasScientificName> \""+s+"\";";
+            ret += "rdfs:label \""+s+"\";";
         }
         for(String s : this.altLabels)
         {
             ret += "<http://ontology.irstea.fr/AgronomicTaxon#hasVernacularName> \""+s+"\";";
+            ret += "rdfs:label \""+s+"\";";
         }
         
         return ret.substring(0, ret.lastIndexOf(";"));
