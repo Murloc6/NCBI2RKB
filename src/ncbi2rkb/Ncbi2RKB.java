@@ -38,7 +38,7 @@ public class Ncbi2RKB
         System.out.println("Nodes loaded");
         
         System.out.println("Exporting to sparql output");
-        ne.exportNodesToSpOut("in/agronomicTaxon.owl");
+        ne.exportNodesToSpOut("in/AgronomicTaxon.ttl");
         System.out.println("Exported");
         
         

@@ -165,7 +165,7 @@ public class NCBIExtractor
       public String getADOMTtl(String adomFileName)
     {
         
-        String ret = "prefix : <http://www.w3.org/2002/07/owl#> \n" +
+        String ret = "prefix : <http://ontology.irstea.fr/AgronomicTaxon#> \n" +
 "prefix owl: <http://www.w3.org/2002/07/owl#> \n" +
 "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
 "prefix xml: <http://www.w3.org/XML/1998/namespace> \n" +
